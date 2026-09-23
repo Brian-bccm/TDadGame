@@ -43,6 +43,27 @@ namespace KingdomLastStand.Tests
             Assert.That(progression.HighestUnlockedLevel, Is.EqualTo(2));
             Assert.That(progression.Complete(1, 30), Is.False);
         }
+
+        [Test]
+        public void CompletingLockedLevel_DoesNotUnlockIt()
+        {
+            var progression = new LevelProgression();
+            Assert.That(progression.Complete(3, 30), Is.False);
+            Assert.That(progression.HighestUnlockedLevel, Is.EqualTo(1));
+        }
+
+        [Test]
+        public void OfflineReward_ReturnsZeroForFutureTimestamp()
+        {
+            var now = new DateTime(2026, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            Assert.That(OfflineRewardCalculator.Calculate(now.AddHours(2), now, 100, 8), Is.Zero);
+        }
+
+        [Test]
+        public void Merge_RejectsFinalEvolution()
+        {
+            var evolved = new UnitIdentity("archer", 5, isFinalEvolution: true);
+            Assert.That(MergeRules.CanMerge(evolved, evolved, 6), Is.False);
+        }
     }
 }
-
