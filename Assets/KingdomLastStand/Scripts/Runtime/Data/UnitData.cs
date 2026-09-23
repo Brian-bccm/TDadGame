@@ -28,4 +28,3 @@ namespace KingdomLastStand.Data
         public int BuyCost => buyCost;
     }
 }
-

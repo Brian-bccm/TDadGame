@@ -22,4 +22,3 @@ namespace KingdomLastStand.Data
         public int GoldReward => goldReward;
     }
 }
-

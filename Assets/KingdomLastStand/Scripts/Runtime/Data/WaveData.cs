@@ -25,4 +25,3 @@ namespace KingdomLastStand.Data
         public IReadOnlyList<SpawnGroup> Groups => groups;
     }
 }
-

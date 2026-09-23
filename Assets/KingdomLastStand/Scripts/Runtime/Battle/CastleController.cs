@@ -29,4 +29,3 @@ namespace KingdomLastStand.Battle
         private void HandleDestroyed() => Destroyed?.Invoke();
     }
 }
-

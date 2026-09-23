@@ -8,4 +8,3 @@ namespace KingdomLastStand.Combat
         void TakeDamage(float amount);
     }
 }
-
