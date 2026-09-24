@@ -21,6 +21,8 @@ Production development has started. This repository is not yet a store-ready rel
 3. Add this repository as a Unity project and open it.
 4. Run EditMode tests before making a build.
 
+To generate the current battle preview, choose **Kingdom Last Stand → Create Demo Battle Scene** from the Unity editor menu, then press Play. See [`Documentation/PLAYABLE_DEMO.md`](Documentation/PLAYABLE_DEMO.md).
+
 ## Scope
 
 The authoritative product scope is in [`Documentation/MASTER_GAME_SPEC.md`](Documentation/MASTER_GAME_SPEC.md). Development must not call the game complete because it merely compiles or contains placeholder screens.

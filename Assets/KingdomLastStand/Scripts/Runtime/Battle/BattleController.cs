@@ -19,6 +19,16 @@ namespace KingdomLastStand.Battle
         public BattleState State { get; private set; } = BattleState.Ready;
         public event Action<BattleState> StateChanged;
 
+        public void ConfigureForDemo(WaveManager waves, CastleController targetCastle)
+        {
+            if (waveManager != null) waveManager.WaveCompleted -= HandleVictory;
+            if (castle != null) castle.Destroyed -= HandleDefeat;
+            waveManager = waves;
+            castle = targetCastle;
+            if (waveManager != null) waveManager.WaveCompleted += HandleVictory;
+            if (castle != null) castle.Destroyed += HandleDefeat;
+        }
+
         private void Awake()
         {
             if (waveManager != null) waveManager.WaveCompleted += HandleVictory;

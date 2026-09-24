@@ -15,6 +15,7 @@ namespace KingdomLastStand.Data
         [SerializeField, Min(0.1f)] private float attackRange = 4f;
         [SerializeField, Min(0.1f)] private float projectileSpeed = 12f;
         [SerializeField, Min(0)] private int buyCost = 20;
+        [SerializeField] private UnitData mergeResult;
 
         public string Id => id;
         public string FamilyId => familyId;
@@ -26,5 +27,23 @@ namespace KingdomLastStand.Data
         public float AttackRange => attackRange;
         public float ProjectileSpeed => projectileSpeed;
         public int BuyCost => buyCost;
+        public UnitData MergeResult => mergeResult;
+
+        public void Configure(string unitId, string unitFamilyId, int unitTier, GameObject unitPrefab,
+            GameObject projectilePrefab, float unitDamage, float interval, float range, float shotSpeed,
+            int cost, UnitData nextTier)
+        {
+            id = unitId;
+            familyId = unitFamilyId;
+            tier = Mathf.Max(1, unitTier);
+            prefab = unitPrefab;
+            this.projectilePrefab = projectilePrefab;
+            damage = Mathf.Max(0.1f, unitDamage);
+            attackInterval = Mathf.Max(0.05f, interval);
+            attackRange = Mathf.Max(0.1f, range);
+            projectileSpeed = Mathf.Max(0.1f, shotSpeed);
+            buyCost = Mathf.Max(0, cost);
+            mergeResult = nextTier;
+        }
     }
 }

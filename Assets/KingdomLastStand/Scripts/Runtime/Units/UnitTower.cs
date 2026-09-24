@@ -61,6 +61,7 @@ namespace KingdomLastStand.Units
 
             var origin = projectileOrigin != null ? projectileOrigin : transform;
             var instance = Instantiate(data.ProjectilePrefab, origin.position, Quaternion.identity);
+            instance.SetActive(true);
             var projectile = instance.GetComponent<Projectile>();
 
             if (projectile == null)

@@ -71,6 +71,7 @@ namespace KingdomLastStand.Battle
             enemy.Initialize(data, path, castle);
             enemy.Removed += HandleEnemyRemoved;
             _aliveEnemies.Add(enemy);
+            instance.SetActive(true);
         }
 
         private void HandleEnemyRemoved(EnemyAgent enemy, bool wasKilled)

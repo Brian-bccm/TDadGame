@@ -19,9 +19,22 @@ namespace KingdomLastStand.Data
             public int Count => count;
             public float Interval => interval;
             public float DelayBeforeGroup => delayBeforeGroup;
+
+            public SpawnGroup(EnemyData enemyData, int enemyCount, float spawnInterval, float groupDelay = 0f)
+            {
+                enemy = enemyData;
+                count = Mathf.Max(1, enemyCount);
+                interval = Mathf.Max(0.05f, spawnInterval);
+                delayBeforeGroup = Mathf.Max(0f, groupDelay);
+            }
         }
 
         [SerializeField] private List<SpawnGroup> groups = new List<SpawnGroup>();
         public IReadOnlyList<SpawnGroup> Groups => groups;
+
+        public void Configure(List<SpawnGroup> spawnGroups)
+        {
+            groups = spawnGroups ?? new List<SpawnGroup>();
+        }
     }
 }

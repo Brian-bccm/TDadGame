@@ -20,5 +20,16 @@ namespace KingdomLastStand.Data
         public float MovementSpeed => movementSpeed;
         public int CastleDamage => castleDamage;
         public int GoldReward => goldReward;
+
+        public void Configure(string enemyId, string name, GameObject enemyPrefab, float health, float speed, int damage, int reward)
+        {
+            id = enemyId;
+            displayName = name;
+            prefab = enemyPrefab;
+            maximumHealth = Mathf.Max(1f, health);
+            movementSpeed = Mathf.Max(0.1f, speed);
+            castleDamage = Mathf.Max(1, damage);
+            goldReward = Mathf.Max(0, reward);
+        }
     }
 }
